@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">    <title>DerGrimm</title>
+    
+    <style>
+        html{
+            background: linear-gradient(0.37turn, rgba(0,0,0,0), 90%, rgb(0,0,0));
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            
+        }
+        .bg-img{
+            position: fixed;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: url(https://cheyennetattoo.com/uploads/media/900x900/05/2755-Logo.png?v=1-0);
+            background-repeat: no-repeat;
+            background-position: 0 center;
+            background-size: 200%;
+        }
+        header{
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Gloock', serif;
+        }
+        
+        h1{
+            font-size: 4rem;
+        }
+        h2{
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+        header p{
+            width: clamp(45ch, 60%, 75ch);
+        }
+        main{
+            /* overflow: hidden; */
+            /* background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c); */
+            scroll-behavior: smooth;
+            padding: 2rem;
+            
+        }
+        .carousel-row{
+            
+            overflow: scroll;
+            display: flex;
+            padding-bottom: 2rem;
+            gap: 2rem;
+        }
+        
+        .carousel-row::-webkit-scrollbar{
+            display: none;
+        }
+        
+        .artist-card{
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .card-overlay{
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0.49turn, rgba(0,0,0,0), 80%, rgb(0,0,0));
+        }
+        .card-title{
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            font-size: 1.25rem;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        footer{
+            padding: 2rem;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="bg-img"></div>
+    <header>
+        <h1>DerGrimm</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet quaerat tempora maiores voluptatem! Placeat iste delectus voluptatum eos nihil dolorum voluptate. Fuga consectetur architecto saepe nulla ducimus voluptas quaerat officia.</p>
+    </header>
+    <main>
+        <h2>Artists</h2>
+        <div id="mainArtist" class="carousel-row">
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/300" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/300" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/300" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/300" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/300" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/300" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/300" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+        </div>
+        
+        <h2>Guest Artists</h2>
+        <div id="guestArtist" class="carousel-row">
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/200" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/200" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/200" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+            
+            <div class="artist-card">
+                <img src="https://picsum.photos/400/200" alt="">
+                <div class="card-overlay"></div>
+                <div class="card-title">
+                    Artist Name
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <a href="#" target="_blank">Home</a>
+            <a href="#" target="_blank">Contact</a>
+            <a href="#" target="_blank">Schedule</a>
+        </div>
+    </footer>
+</body>
+</html>
