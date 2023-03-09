@@ -26,7 +26,7 @@
             right: 0;
             background-image: url(https://cheyennetattoo.com/uploads/media/900x900/05/2755-Logo.png?v=1-0);
             background-repeat: no-repeat;
-            background-position: 0 center;
+            background-position: 0 300%;
             background-size: 200%;
         }
         header{
@@ -36,17 +36,51 @@
             justify-content: center;
             min-height: 100vh;
             font-family: 'Gloock', serif;
+            animation: header-ani 1.2s ease-in-out;
+        }
+        
+        @keyframes header-ani {
+            from{
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         h1{
-            font-size: 4rem;
+            font-size: 2rem;
         }
         h2{
-            font-size: 2rem;
+            /* font-size: 2rem; */
             text-transform: uppercase;
         }
+        
+        a{
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0 0.5rem;
+            /* text-decoration: none; */
+        }
+        
+        header button{
+            background: #000000;
+            color: #ffffff;
+            width: 50%;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+        
         header p{
-            width: clamp(45ch, 60%, 75ch);
+            width: clamp(25ch, 60%, 75ch);
         }
         main{
             /* overflow: hidden; */
@@ -55,10 +89,17 @@
             padding: 2rem;
             
         }
+        
+        main img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .carousel-row{
             
-            overflow: scroll;
+            /* overflow: scroll; */
             display: flex;
+            flex-direction: column;
             padding-bottom: 2rem;
             gap: 2rem;
         }
@@ -89,6 +130,27 @@
         footer{
             padding: 2rem;
         }
+        @media screen and (min-width: 640px) {
+            .bg-img{
+                background-position: 0 center;
+            }
+            h1{
+                font-size: 4rem;
+            }
+            h2{
+                font-size: 2rem;
+            }
+            header p{
+                width: clamp(45ch, 60%, 75ch);
+            }
+            
+            .carousel-row{
+                overflow: scroll;
+                flex-direction: row;
+                padding-bottom: 2rem;
+                gap: 2rem;
+            }
+        }
     </style>
     
 </head>
@@ -97,6 +159,7 @@
     <header>
         <h1>DerGrimm</h1>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet quaerat tempora maiores voluptatem! Placeat iste delectus voluptatum eos nihil dolorum voluptate. Fuga consectetur architecto saepe nulla ducimus voluptas quaerat officia.</p>
+        <button>Book Now</button>
     </header>
     <main>
         <h2>Artists</h2>
@@ -156,7 +219,6 @@
                     Artist Name
                 </div>
             </div>
-            
         </div>
         
         <h2>Guest Artists</h2>
@@ -201,5 +263,69 @@
             <a href="#" target="_blank">Schedule</a>
         </div>
     </footer>
+    
+    <script>
+        if (window.innerWidth < 640) {
+            // Add view all button
+            const mainArtist = document.getElementById('mainArtist');
+            const guestArtist = document.getElementById('guestArtist');
+            
+            const mainArtistCards = document.querySelectorAll('#mainArtist .artist-card');
+            const guestArtistCards = document.querySelectorAll('#guestArtist .artist-card');
+            
+            const viewAllBtn = document.createElement('button');
+            viewAllBtn.innerText = 'View All';
+            viewAllBtn.style.marginTop = '1rem';
+            viewAllBtn.style.marginLeft = 'auto';
+            viewAllBtn.style.marginRight = 'auto';
+            viewAllBtn.style.display = 'block';
+            viewAllBtn.style.width = 'fit-content';
+            viewAllBtn.style.padding = '0.5rem 1rem';
+            viewAllBtn.style.borderRadius = '0.5rem';
+            viewAllBtn.style.border = 'none';
+            viewAllBtn.style.backgroundColor = '#000000';
+            viewAllBtn.style.color = '#ffffff';
+            viewAllBtn.style.cursor = 'pointer';
+            mainArtist.appendChild(viewAllBtn);
+            guestArtist.appendChild(viewAllBtn.cloneNode(true));
+            
+            //get mainArtist viewAllBtn
+            document.querySelector('#mainArtist button').addEventListener('click', function f() {
+                this.classList.toggle('active');
+                const active = this.classList.contains('active');
+                this.innerText = active ? 'View Less' : 'View All';
+                mainArtistCards.forEach((card, index) => {
+                    if (index > 2) {
+                        card.style.display = active ? '' : 'none';
+                    }
+                });
+            })
+            document.querySelector('#guestArtist button').addEventListener('click', function f() {
+                this.classList.toggle('active');
+                const active = this.classList.contains('active');
+                this.innerText = active ? 'View Less' : 'View All';
+                guestArtistCards.forEach((card, index) => {
+                    if (index > 2) {
+                        card.style.display = active ? '' : 'none';
+                    }
+                });
+            })
+            
+            
+            //list a maximum of 3 artist-cards
+            
+            mainArtistCards.forEach((card, index) => {
+                if (index > 2) {
+                    card.style.display = 'none';
+                }
+            });
+            
+            guestArtistCards.forEach((card, index) => {
+                if (index > 2) {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
